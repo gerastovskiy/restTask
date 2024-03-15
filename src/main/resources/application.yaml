@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    username: user
+    password: pass
+    url: jdbc:postgresql://postgres:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        enable_lazy_load_no_trans: false
+        order_inserts: true
+        jdbc.batch_size: 100
+        hbm2ddl:
+          auto: validate
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
+      springframework:
+        jdbc:
+          core:
+            JdbcTemplate: debug
+            StatementCreatorUtils: trace
